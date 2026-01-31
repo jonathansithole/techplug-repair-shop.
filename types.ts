@@ -1,15 +1,9 @@
-/* =========================
-   USER & ROLES
-   ========================= */
 export enum UserRole {
   CUSTOMER = 'CUSTOMER',
   ADMIN = 'ADMIN',
   STAFF = 'STAFF'
 }
 
-/* =========================
-   TICKETS & STATUSES
-   ========================= */
 export enum TicketStatus {
   NEW = 'NEW',
   IN_PROGRESS = 'IN_PROGRESS',
@@ -31,9 +25,6 @@ export enum OrderStatus {
   DELIVERED = 'DELIVERED'
 }
 
-/* =========================
-   PRODUCTS & CART
-   ========================= */
 export interface Product {
   id: string;
   name: string;
@@ -52,30 +43,20 @@ export interface Product {
   };
 }
 
-export interface CartItem extends Product {
-  quantity: number;
-}
-
-/* =========================
-   SERVICES (CATALOG)
-   ========================= */
 export interface ServiceItem {
   id: string;
   name: string;
-  price: number;
   description?: string;
+  price: number;
 }
 
 export interface ServiceCategory {
   id: string;
-  serviceType: string;
+  category: string;
   description: string;
   services: ServiceItem[];
 }
 
-/* =========================
-   SERVICE REQUESTS (TICKETS)
-   ========================= */
 export interface ServiceRequest {
   id: string;
   customerName: string;
@@ -90,15 +71,12 @@ export interface ServiceRequest {
   assignedTo?: string;
 }
 
-/* =========================
-   TRADE-INS
-   ========================= */
 export interface TradeInRequest {
   id: string;
   customerName: string;
   contact: string;
   deviceModel: string;
-  specs: string;
+  specs: string; 
   condition: string;
   conditionRating: 'Functional' | 'Minor Issues' | 'Dead/Parts';
   expectedPrice: number;
@@ -108,9 +86,6 @@ export interface TradeInRequest {
   adminNotes?: string;
 }
 
-/* =========================
-   ORDERS
-   ========================= */
 export interface Order {
   id: string;
   customerName: string;
@@ -123,9 +98,6 @@ export interface Order {
   paymentMethod: 'Stripe' | 'PayPal';
 }
 
-/* =========================
-   USERS & PROMOS
-   ========================= */
 export interface User {
   id: string;
   name: string;
@@ -137,4 +109,8 @@ export interface Promotion {
   id: string;
   title: string;
   active: boolean;
+}
+
+export interface CartItem extends Product {
+  quantity: number;
 }

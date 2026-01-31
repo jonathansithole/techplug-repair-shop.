@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
-import { Product, CartItem, Order, Ticket, OrderStatus, ServiceCategory } from '../types';
+import { Product, CartItem, Order, TicketStatus, OrderStatus, ServiceCategory } from '../types';
 
 // --- INITIAL SERVICE DATA (Updated with your list) ---
 const INITIAL_SERVICES: ServiceCategory[] = [
@@ -87,7 +87,7 @@ interface DataContextType {
     deleteProduct: (id: string) => void;
 
     // Admin: Tickets (Existing)
-    tickets: Ticket[];
+    tickets: TicketStatus[];
 
     // Admin: Services (New)
     services: ServiceCategory[];
@@ -103,7 +103,7 @@ export const DataProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
     const [products, setProducts] = useState<Product[]>([]);
     const [cart, setCart] = useState<CartItem[]>([]);
     const [orders, setOrders] = useState<Order[]>([]);
-    const [tickets, setTickets] = useState<Ticket[]>([]); 
+    const [tickets, setTickets] = useState<TicketStatus[]>([]); 
     const [services, setServices] = useState<ServiceCategory[]>(INITIAL_SERVICES);
 
     // --- CART ACTIONS ---
