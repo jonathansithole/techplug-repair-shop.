@@ -1,11 +1,15 @@
-import React from 'react';
-
+/* =========================
+   USER & ROLES
+   ========================= */
 export enum UserRole {
   CUSTOMER = 'CUSTOMER',
   ADMIN = 'ADMIN',
   STAFF = 'STAFF'
 }
 
+/* =========================
+   TICKETS & STATUSES
+   ========================= */
 export enum TicketStatus {
   NEW = 'NEW',
   IN_PROGRESS = 'IN_PROGRESS',
@@ -27,11 +31,14 @@ export enum OrderStatus {
   DELIVERED = 'DELIVERED'
 }
 
+/* =========================
+   PRODUCTS & CART
+   ========================= */
 export interface Product {
   id: string;
   name: string;
   category: string; // Internal category
-  type: 'Laptop' | 'Component' | 'Accessory' | 'Software'; // For filters
+  type: 'Laptop' | 'Component' | 'Accessory' | 'Software';
   brand: 'Dell' | 'HP' | 'Lenovo' | 'Samsung' | 'Kingston' | 'Other';
   condition: 'New' | 'Refurbished';
   price: number;
@@ -45,6 +52,30 @@ export interface Product {
   };
 }
 
+export interface CartItem extends Product {
+  quantity: number;
+}
+
+/* =========================
+   SERVICES (CATALOG)
+   ========================= */
+export interface ServiceItem {
+  id: string;
+  name: string;
+  price: number;
+  description?: string;
+}
+
+export interface ServiceCategory {
+  id: string;
+  serviceType: string;
+  description: string;
+  services: ServiceItem[];
+}
+
+/* =========================
+   SERVICE REQUESTS (TICKETS)
+   ========================= */
 export interface ServiceRequest {
   id: string;
   customerName: string;
@@ -59,21 +90,27 @@ export interface ServiceRequest {
   assignedTo?: string;
 }
 
+/* =========================
+   TRADE-INS
+   ========================= */
 export interface TradeInRequest {
   id: string;
   customerName: string;
   contact: string;
   deviceModel: string;
-  specs: string; 
-  condition: string; // Detailed description
+  specs: string;
+  condition: string;
   conditionRating: 'Functional' | 'Minor Issues' | 'Dead/Parts';
   expectedPrice: number;
   status: TradeInStatus;
   dateSubmitted: string;
-  imageNames?: string[]; // Simulated file uploads
+  imageNames?: string[];
   adminNotes?: string;
 }
 
+/* =========================
+   ORDERS
+   ========================= */
 export interface Order {
   id: string;
   customerName: string;
@@ -86,6 +123,9 @@ export interface Order {
   paymentMethod: 'Stripe' | 'PayPal';
 }
 
+/* =========================
+   USERS & PROMOS
+   ========================= */
 export interface User {
   id: string;
   name: string;
@@ -97,8 +137,4 @@ export interface Promotion {
   id: string;
   title: string;
   active: boolean;
-}
-
-export interface CartItem extends Product {
-  quantity: number;
 }
