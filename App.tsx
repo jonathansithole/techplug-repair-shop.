@@ -504,7 +504,7 @@ const AppContent: React.FC = () => {
             <main className="flex-grow pt-20">
                 {/* HERO SECTION */}
                 <section id="home" className="relative h-[calc(100vh-80px)] max-h-[800px] flex items-center overflow-hidden">
-                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('../public/images/background.jpg')" }}>
+                    <div className="absolute inset-0 bg-cover bg-center" style={{ backgroundImage: "url('/images/background.jpg')" }}>
                         <div className="absolute inset-0 bg-gradient-to-r from-slate-900 via-slate-900/80 to-slate-900/20"></div>
                     </div>
                     <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
