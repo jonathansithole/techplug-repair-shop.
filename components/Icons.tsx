@@ -1,0 +1,51 @@
+import {
+  X,
+  ShoppingCart,
+  Trash,
+  CheckCircle,
+  Loader,
+  Cpu,
+  Menu,
+  Plus,
+  Edit,
+  Shield,
+  LayoutDashboard,
+  Package,
+  Wrench,
+  AlertCircle,
+  LogOut,
+  ArrowRight,
+  MessageCircle,
+  Phone,
+  RefreshCw, // We import RefreshCw but will export it as "Refresh"
+  Mail,
+  ChevronRight,
+  User,
+  MapPin
+} from 'lucide-react';
+
+export const Icons = {
+  X,
+  ShoppingCart,
+  Trash,
+  CheckCircle,
+  Loader,
+  Cpu,
+  Menu,
+  Plus,
+  Edit,
+  Shield,
+  LayoutDashboard,
+  Package,
+  Wrench,
+  AlertCircle,
+  LogOut,
+  ArrowRight,
+  MessageCircle,
+  Phone,
+  Refresh: RefreshCw, // Maps "Refresh" in your app to the "RefreshCw" icon
+  Mail,
+  ChevronRight,
+  User,
+  MapPin
+};
